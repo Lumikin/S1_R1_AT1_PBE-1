@@ -1,0 +1,205 @@
+type: collection.insomnia.rest/5.0
+schema_version: "5.1"
+name: My first collection
+meta:
+  id: wrk_998404777f1d4f858b48ca681c7267db
+  created: 1771854587593
+  modified: 1771854587593
+  description: ""
+collection:
+  - name: Produtos
+    meta:
+      id: fld_a4dc8aa034634181983619ccd42fcb22
+      created: 1771859898998
+      modified: 1771859898998
+      sortKey: -1771859898998
+      description: ""
+    children:
+      - url: http://localhost:8086/produtos/
+        name: My first request
+        meta:
+          id: req_0e02339140c34c13851ce2658d01ad52
+          created: 1771854587630
+          modified: 1771862877769
+          isPrivate: false
+          description: ""
+          sortKey: -1771859907467
+        method: GET
+        body:
+          mimeType: multipart/form-data
+          params:
+            - name: image
+              value: ""
+              description: ""
+              disabled: false
+              multiline: true
+              fileName: C:\Users\49211409870\Downloads\chococat icon.jpg
+              type: file
+            - name: idProduto
+              value: ""
+              description: ""
+              disabled: false
+            - name: ""
+              value: ""
+              description: ""
+              disabled: false
+        headers:
+          - name: Content-Type
+            value: multipart/form-data
+          - name: User-Agent
+            value: insomnia/12.3.1
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8086/produtos/cadastro
+        name: New Request
+        meta:
+          id: req_73e6ba4d4eca4658b8fdf2e1fed17b08
+          created: 1771862857110
+          modified: 1771864633460
+          isPrivate: false
+          description: ""
+          sortKey: -1771859907567
+        method: POST
+        body:
+          mimeType: multipart/form-data
+          params:
+            - name: idCategoria
+              value: "1"
+              description: ""
+              disabled: false
+            - name: nome
+              value: Teste
+              description: ""
+              disabled: false
+            - name: valor
+              value: "100"
+              description: ""
+              disabled: false
+            - name: image
+              value: ""
+              description: ""
+              disabled: false
+              fileName: C:\Users\49211409870\Downloads\chococat icon.jpg
+              type: file
+        headers:
+          - name: Content-Type
+            value: multipart/form-data
+          - name: User-Agent
+            value: insomnia/12.3.1
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8086/produtos/1
+        name: New Request
+        meta:
+          id: req_ef8b42bce03a4bc8b565a57054815639
+          created: 1771864734593
+          modified: 1771864768027
+          isPrivate: false
+          description: ""
+          sortKey: -1771859907367
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.3.1
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: Categorias
+    meta:
+      id: fld_4b5b17f571204d2ebe9ab3abadd1da71
+      created: 1771859905254
+      modified: 1771859905254
+      sortKey: -1771859905254
+      description: ""
+    children:
+      - url: http://localhost:8086/categoria
+        name: New Request
+        meta:
+          id: req_e73f970b6a5d4f3db3217bb37325127d
+          created: 1771859910161
+          modified: 1771861730165
+          isPrivate: false
+          description: ""
+          sortKey: -1771861730135
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.3.1
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8086/categoria
+        name: New Request
+        meta:
+          id: req_08e657a7b99f4b78a355ef4d21e8a909
+          created: 1771862370297
+          modified: 1771862764330
+          isPrivate: false
+          description: ""
+          sortKey: -1771861730035
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"descricao": "OIOIOI",
+            	"data" : "2025-02-23"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.3.1
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_a4fce677c8efcf6022cd1e5a2aca3203060a0adf
+    created: 1771854587610
+    modified: 1771854587610
+environments:
+  name: Base Environment
+  meta:
+    id: env_a4fce677c8efcf6022cd1e5a2aca3203060a0adf
+    created: 1771854587600
+    modified: 1771854587600
+    isPrivate: false

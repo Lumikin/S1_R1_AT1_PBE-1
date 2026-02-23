@@ -19,39 +19,62 @@ const produtoController = {
     }
   },
 
+  selecionarId: async (req,res) => {
+    try {
+      const id = Number(req.params.idProduto);
+      if (!id || !Number.isInteger(id) || id.length === 0) {
+        res
+          .status(400)
+          .json({ Message: "Forneça um indentificador (ID) valido" });
+      }
+      const resultadoId = await produtoModel.selecionarId(id);
+      res
+        .status(200)
+        .json({ Message: "Resultado dos dados listados", data: resultadoId });
+    } catch (error) {
+      console.error(error);
+      res
+        .status(500)
+        .json({
+          message: "Ocorreu um erro no servidor",
+          errorMessage: error.message,
+        });
+    }
+  },
+
   cadastrarProduto: async (req, res) => {
     try {
-      const { idCategoria, nome, valor, data } = req.body;
+      const { idCategoria, nome, valor } = req.body;
       if (
         !idCategoria ||
         isNaN(idCategoria) ||
         !nome ||
         isNaN(idCategoria) ||
         !valor ||
-        isNaN(valor) ||
-        !data
+        isNaN(valor)
       ) {
         return res.status(400).json({
           message: "Dados invalidos",
         });
       }
 
-      // upload
+      // --------- Upload ----------
 
       const vinculo = req.file.path;
-      if (!req.file) {
-        return res.status(400).json({
-          message: "Arquivo não enviado",
-        });
-      }
-      
+
       const resultado = await produtoModel.cadastrarProduto(
         idCategoria,
         nome,
         valor,
         vinculo,
-        data,
       );
+      // ------ Verificação do arquivo --------
+      if (!req.file) {
+        return res.status(400).json({
+          message: "Arquivo não enviado",
+        });
+      }
+
       if (resultado.affectedRows === 1 && resultado.insertId != 0) {
         res.status(201).json({
           message: "Registro incluido com sucesso",
