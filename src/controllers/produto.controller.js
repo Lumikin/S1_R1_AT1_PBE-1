@@ -1,9 +1,9 @@
-import pedidoModel from "../models/produto.model.js";
+import produtoModel from "../models/produto.model.js";
 
 const produtoController = {
   selecionarTodosCleintes: async (req, res) => {
     try {
-      const resultado = await pedidoModel.selecinarPedido();
+      const resultado = await produtoModel.selecinarPedido();
       if (!resultado || resultado.length === 0) {
         return res.status(200).json({
           message: "A tabela não contem registros",
