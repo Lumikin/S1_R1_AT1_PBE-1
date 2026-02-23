@@ -1,11 +1,10 @@
-import express from "express"
-import { config } from "dotenv";
-
-config();
+import express from "express";
+import produtoRoutes from "./routes/produto.routes.js";
+import "dotenv/config";
 
 const app = express();
-const PORT = process.env.PORT || 8000;
 
-app.listen(PORT, () => {
-  console.log(`Servidor rodadndo em http://localhost:${PORT}`);
+app.use("/", produtoRoutes);
+app.listen(process.env.PORT, () => {
+  console.log(`Servidor rodadndo em http://localhost:${process.env.PORT}`);
 });
