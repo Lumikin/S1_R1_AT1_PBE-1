@@ -10,5 +10,7 @@ produtoRoutes.post(
   uploadImage,
   produtoController.cadastrarProduto,
 );
+produtoRoutes.put("/produtos/:idProduto", uploadImage, produtoController.atualzarProduto,);
+produtoRoutes.delete("/produtos/:idProduto", produtoController.removerProduto);
 
 export default produtoRoutes;

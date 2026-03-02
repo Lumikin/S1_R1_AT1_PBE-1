@@ -11,7 +11,7 @@ const produtoModel = {
     const sql = "SELECT * FROM produtos WHERE idProduto = ?;";
     const values = [pID];
     const [rows] = await pool.query(sql, values);
-    console.log(rows)
+    console.log(rows);
     return rows;
   },
 
@@ -24,7 +24,17 @@ const produtoModel = {
     return rows;
   },
   excluirProduto: async (pID) => {
-    
+    const sql = "DELETE FROM produtos WHERE idProduto = ?;";
+    const values = [pID];
+    const [rows] = await pool.query(sql, values);
+    return rows;
+  },
+  atualizarProduto: async (pID, idCategoria, nome, valor, imagem) => {
+    const sql = "UPDATE produtos SET idCategoria = ?, nomeProduto = ?, valorProduto = ?, vínculoImagem = ? WHERE idProduto = ?;";
+    const values = [idCategoria, nome, valor, imagem, pID];
+    const [rows] = await pool.query(sql, values);
+    console.log(rows);
+    return rows;
   },
 };
 
